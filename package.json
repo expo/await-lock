@@ -1,6 +1,6 @@
 {
   "name": "await-lock",
-  "version": "2.2.2",
+  "version": "3.0.0",
   "description": "Mutex locks for async functions",
   "type": "module",
   "exports": {
