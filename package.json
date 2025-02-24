@@ -2,8 +2,13 @@
   "name": "await-lock",
   "version": "2.2.2",
   "description": "Mutex locks for async functions",
-  "main": "build/AwaitLock.js",
-  "types": "build/AwaitLock.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./build/AwaitLock.d.ts",
+      "import": "./build/AwaitLock.js"
+    }
+  },
   "files": [
     "build",
     "src",
@@ -15,7 +20,7 @@
     "build": "tsc",
     "lint": "tsc --noEmit",
     "prepare": "npm run clean && npm run build",
-    "test": "jest"
+    "test": "NODE_OPTIONS='--disable-warning=ExperimentalWarning --experimental-vm-modules' jest"
   },
   "repository": {
     "type": "git",
@@ -39,20 +44,31 @@
   "homepage": "https://github.com/ide/await-lock",
   "jest": {
     "coverageDirectory": "<rootDir>/..",
-    "rootDir": "src"
+    "extensionsToTreatAsEsm": [
+      ".ts"
+    ],
+    "moduleNameMapper": {
+      "^(\\.\\.?\\/.+)\\.js$": "$1"
+    },
+    "rootDir": "src",
+    "transform": {
+      "\\.[jt]sx?$": [
+        "babel-jest",
+        {
+          "root": "<rootDir>/.."
+        }
+      ]
+    }
   },
   "devDependencies": {
-    "@babel/core": "^7.15.0",
-    "@babel/plugin-proposal-class-properties": "^7.14.5",
-    "@babel/plugin-transform-modules-commonjs": "^7.15.0",
-    "@babel/preset-typescript": "^7.15.0",
-    "@types/co": "^4.6.2",
-    "@types/jest": "^26.0.24",
-    "@types/node": "^16.4.13",
-    "babel-jest": "^27.0.6",
+    "@babel/core": "^7.26.9",
+    "@babel/preset-typescript": "^7.26.0",
+    "@types/co": "^4.6.6",
+    "@types/node": "^22.13.5",
+    "babel-jest": "^29.7.0",
     "co": "^4.6.0",
-    "jest": "^27.0.6",
-    "prettier": "^2.3.2",
-    "typescript": "^4.6.3"
+    "jest": "^29.7.0",
+    "prettier": "^3.5.2",
+    "typescript": "^5.7.3"
   }
 }
