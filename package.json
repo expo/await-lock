@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ide/await-lock.git"
+    "url": "git+https://github.com/ide/await-lock.git"
   },
   "keywords": [
     "async",
