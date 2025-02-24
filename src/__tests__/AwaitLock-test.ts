@@ -1,6 +1,7 @@
+import { describe, expect, it, jest } from '@jest/globals';
 import co from 'co';
 
-import AwaitLock from '../AwaitLock';
+import AwaitLock from '../AwaitLock.js';
 
 jest.useFakeTimers();
 

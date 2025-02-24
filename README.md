@@ -7,6 +7,8 @@ Mutex locks for async functions
 
 # Usage
 
+This package is published only as an ES module. In addition to importing ES modules from ES modules, modern versions of Node.js support [requiring ES modules from CommonJS modules](https://nodejs.org/api/modules.html#loading-ecmascript-modules-using-require).
+
 ```javascript
 import AwaitLock from 'await-lock';
 
